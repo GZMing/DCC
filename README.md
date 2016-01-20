@@ -1,2 +1,2 @@
-# SRDM
-服务与资源的定义管理系统 => Service and Resource Definition Management
+# DCC
+定义配置中心 -> Define Configuration Center

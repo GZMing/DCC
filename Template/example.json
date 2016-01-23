@@ -1,0 +1,18 @@
+{
+    "example": {
+        "DCC": "on",
+        "Host": "IP|Hostname",
+        "HostGroup": "web",
+        "Template": {
+            "src": "example.json",
+            "dst": "/etc/init.d/example",
+            "mode": 644,
+            "owner": "root",
+            "group": "root",
+            "backup": "on"
+        },
+        "Define": {
+            "Command": "example"
+        }
+    }
+}

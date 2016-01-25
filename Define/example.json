@@ -12,7 +12,11 @@
             "backup": "on"
         },
         "Define": {
-            "Command": "example"
+            "Command": "example",
+            "start": "start",
+            "stop": "stop",
+            "reload": "reload",
+            "restart": "restart"
         }
     }
 }

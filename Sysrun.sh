@@ -9,6 +9,14 @@
 
 BaseRoot=$(cd $(dirname $0);pwd)
 BaseConf=${BaseRoot}/Config
+BaseDef=${BaseRoot}/Define
+BasePub=${BaseRoot}/Public
+BaseNode=${BaseRoot}/Host
+BaseTpl=${BaseRoot}/Template
+
+for Base in $BaseConf $BaseDef $BasePub $BaseNode $BaseTpl; do
+    test ! -d $Base && echo -e "\033[31mException: no such directory!\033[0m" && exit 1
+done
 
 if [ -d ${BaseConf} ];then
     for BaseConfName in $(ls -lh ${BaseConf} | grep ^- | awk '{print $9}'); do
@@ -17,7 +25,14 @@ if [ -d ${BaseConf} ];then
         fi
     done
 else
-    echo -e "\033[31mException: no configuration file found!\033[0m"
-    exit 1
+    echo -e "\033[31mException: no configuration file found!\033[0m" ; exit 1
+fi
+
+if [ -d ${BasePub} ];then
+    for BasePubName in $(ls -lh ${BasePub} | grep ^- | awk '{print $9}'); do
+        if [ -f ${BasePub}/${BasePubName} ];then
+            . ${BasePub}/${BasePubName}
+        fi
+    done
 fi
 
